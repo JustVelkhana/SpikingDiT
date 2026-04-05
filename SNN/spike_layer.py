@@ -477,8 +477,6 @@ class snnLinear(nn.Module):
 
         if self.use_spike:
             input = self.input_quantizer(input)
-        elif hasattr(self, 'input_quantizer') and self.input_quantizer.calibration and (self.timestep >= self.max_steps*0.4 and self.timestep <= self.max_steps*0.6):
-            self.input_quantizer(input)
 
         if self.online_full_had:
             if self.fp32_had:  # Full Hadamard in FP32
@@ -523,8 +521,6 @@ class snnIdentity(nn.Module):
 
         if self.use_spike:
             x = self.input_quantizer(x)
-        elif hasattr(self, 'input_quantizer') and self.input_quantizer.calibration and (self.timestep >= self.max_steps*0.4 and self.timestep <= self.max_steps*0.6):
-            self.input_quantizer(x)
             
         if self.online_full_had:
             if self.fp32_had:  # Full Hadamard in FP32
