@@ -2,9 +2,9 @@
 
 This is the code implementation for the paper "Trajectory-Aware Spiking DiTs Conversion via Membrane Potential Error-Feedback" in ICML 2026.
 
-![](overview.pdf)
+![Overview](/overview.pdf)
 
-Environment Setup
+**Environment Setup**
 
 The project requires the `fast-hadamard-transform` package along with common libraries such as `numpy`, `torch`, `diffusers`, `tqdm`, and `datasets`.
 
