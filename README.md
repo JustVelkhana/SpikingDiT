@@ -4,7 +4,8 @@ This is the code implementation for the paper "Trajectory-Aware Spiking DiTs Con
 
 ![](main.png)
 
- Environment Setup
+Environment Setup
+
 The project requires the `fast-hadamard-transform` package along with common libraries such as `numpy`, `torch`, `diffusers`, `tqdm`, and `datasets`.
 
 - **Basic Setup**: Initialize the environment using `environment.yml`.
