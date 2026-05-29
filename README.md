@@ -2,7 +2,7 @@
 
 This is the code implementation for the paper "Trajectory-Aware Spiking DiTs Conversion via Membrane Potential Error-Feedback" in ICML 2026.
 
-![](main.png)
+![](overview.pdf)
 
 Environment Setup
 
