@@ -1,3 +1,7 @@
+# Trajectory-Aware Spiking DiTs Conversion via Membrane Potential Error-Feedback
+
+This is the code implementation for the paper "Trajectory-Aware Spiking DiTs Conversion via Membrane Potential Error-Feedback"(ICML2026).
+
 # Spiking DiTs: ANN-to-SNN Conversion Framework
 
  Environment Setup
