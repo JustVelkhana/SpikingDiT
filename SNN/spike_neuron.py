@@ -21,7 +21,6 @@ class MTH_with_neg_line(nn.Module):
         self.find_activation_param(item_stat, minmax_init)
         
         self.base = nn.Parameter(torch.tensor(2.0), requires_grad=False)
-        self.calibration = False
         self.use_mem = False
         self.mem = None
         
@@ -71,22 +70,6 @@ class MTH_with_neg_line(nn.Module):
             self.mem = mem
         out = spike_all.view(self.T, *x_in.shape[1:-1], -1)
         return out
-
-    
-    def optimize_base(self, x):
-        best_mse = float('inf')
-        best_base = self.base.item()
-        search_range = torch.linspace(1.0, 4, steps=10).to(x.device)
-        for candidate in search_range:
-            with torch.no_grad():
-                out = self._spike(x, candidate)
-                mse = torch.mean((x.sum(dim=0) - out.sum(dim=0)) ** 2)
-                if mse < best_mse:
-                    best_mse = mse
-                    best_base = candidate.item()
-        self.base.data.fill_(best_base)
         
     def forward(self, x):
-        if self.calibration:
-            self.optimize_base(x)
         return self._spike(x, self.base)
