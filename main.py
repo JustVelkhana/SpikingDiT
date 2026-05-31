@@ -191,7 +191,6 @@ def main():
   parser.add_argument("--generate", action="store_true")
   parser.add_argument("--use_float32", action="store_true")
   # -----------------optimization setting------------------------------------
-  parser.add_argument("--calibration", action="store_true")
   parser.add_argument("--use_mem", action="store_true")
 
   os.environ['TOKENIZERS_PARALLELISM'] = 'false'
