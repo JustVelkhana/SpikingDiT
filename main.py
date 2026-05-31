@@ -52,20 +52,6 @@ def create_pipeline(args):
     pipe.reset_device_map()
     pipe.to('cuda')
     pipe.transformer.to(dtype)
-
-    if args.calibration:
-      set_spike(pipe.transformer, T=args.T, use_spike=False)
-      for name, module in pipe.transformer.named_modules():
-        if isinstance(module, MTH_with_neg_line):
-            module.calibration = True
-            
-      for i in range(10):
-        test_prompt = [i]
-        pipe(test_prompt, num_inference_steps=args.steps, generator=torch.Generator("cuda").manual_seed(17)).images[0]
-        
-      for name, module in pipe.transformer.named_modules():
-        if isinstance(module, MTH_with_neg_line):
-            module.calibration = False
             
     if args.use_mem:
       for name, module in pipe.transformer.named_modules():
@@ -268,20 +254,6 @@ def main():
     model.reset_device_map()
     model.to('cuda')
     model.transformer.to(dtype)
-
-    if args.calibration:
-      set_spike(model.transformer, T=args.T, use_spike=False)
-      for name, module in model.transformer.named_modules():
-        if isinstance(module, MTH_with_neg_line):
-            module.calibration = True
-            
-      for i in range(10):
-        test_prompt = [i]
-        model(test_prompt, num_inference_steps=args.steps, generator=torch.Generator("cuda").manual_seed(17)).images[0]
-        
-      for name, module in model.transformer.named_modules():
-        if isinstance(module, MTH_with_neg_line):
-            module.calibration = False
             
     if args.use_mem:
       for name, module in model.transformer.named_modules():
