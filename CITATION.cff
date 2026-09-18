@@ -1,0 +1,47 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite our ICML 2026 paper."
+title: "Trajectory-Aware Spiking DiTs Conversion via Membrane Potential Error-Feedback"
+version: 1.0.0
+date-released: "2026-07-09"
+url: "https://github.com/JustVelkhana/SpikingDiT"
+license: MIT
+authors:
+  - family-names: Fang
+    given-names: Haoran
+  - family-names: Man
+    given-names: Tianxing
+  - family-names: Li
+    given-names: Xingchen
+  - family-names: Shi
+    given-names: Wanli
+  - family-names: Fang
+    given-names: Jinjie
+  - family-names: Gu
+    given-names: Bin
+    email: gubin@jlu.edu.cn
+preferred-citation:
+  type: conference-paper
+  title: "Trajectory-Aware Spiking DiTs Conversion via Membrane Potential Error-Feedback"
+  authors:
+    - family-names: Fang
+      given-names: Haoran
+    - family-names: Man
+      given-names: Tianxing
+    - family-names: Li
+      given-names: Xingchen
+    - family-names: Shi
+      given-names: Wanli
+    - family-names: Fang
+      given-names: Jinjie
+    - family-names: Gu
+      given-names: Bin
+  year: 2026
+  collection-title: "Proceedings of the 43rd International Conference on Machine Learning"
+  conference:
+    name: International Conference on Machine Learning
+    city: Seoul
+    country: KR
+  publisher:
+    name: PMLR
+  volume: 306
+  url: "https://icml.cc/virtual/2026/poster/61672"

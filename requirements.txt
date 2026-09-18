@@ -1,0 +1,13 @@
+torch>=2.1.0
+numpy
+tqdm
+pillow
+diffusers>=0.30.0
+transformers
+accelerate
+datasets
+huggingface_hub
+safetensors
+termcolor
+pyyaml
+requests

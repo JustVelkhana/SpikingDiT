@@ -20,7 +20,7 @@ device = torch.device("cuda")
 def create_pipeline(args):
   dtype = torch.float32 if args.use_float32 else torch.float16
   
-  pipe = DiffusionPipeline.from_pretrained(args.model_name, local_files_only=True, device_map='cuda', torch_dtype={'transformer':dtype, 'default': dtype})
+  pipe = DiffusionPipeline.from_pretrained(args.model_name, local_files_only=args.local_files_only, device_map='cuda', torch_dtype={'transformer':dtype, 'default': dtype})
   pipe.scheduler = DPMSolverMultistepScheduler.from_config(pipe.scheduler.config)
 
   wrap_to_snn_model(pipe.transformer)
@@ -163,7 +163,7 @@ def main():
   parser.add_argument("--model_name", type=str, help="model name")
   # -----------------snn setting------------------------------------
   parser.add_argument("--T", type=int, default=1, help="time steps of snn")
-  parser.add_argument("--num_thresholds", type=int, default=8, help="time steps of snn")
+  parser.add_argument("--num_thresholds", type=int, default=8, help="number of thresholds in the multi-threshold neuron")
   # -----------------hadamard------------------------------------
   parser.add_argument("--pre_rotate", action="store_true")
   parser.add_argument("--rotate_mode", type=str, default='hadamard')
@@ -192,6 +192,7 @@ def main():
   parser.add_argument("--use_float32", action="store_true")
   # -----------------optimization setting------------------------------------
   parser.add_argument("--use_mem", action="store_true")
+  parser.add_argument("--local_files_only", action="store_true", help="Load pretrained weights only from the local Hugging Face cache.")
 
   os.environ['TOKENIZERS_PARALLELISM'] = 'false'
   args = parser.parse_args()
@@ -220,7 +221,7 @@ def main():
     exit(0)
   # load fp model
 
-  model = DiffusionPipeline.from_pretrained(args.model_name, local_files_only=True, device_map='cuda', torch_dtype={'transformer':dtype, 'default': dtype})
+  model = DiffusionPipeline.from_pretrained(args.model_name, local_files_only=args.local_files_only, device_map='cuda', torch_dtype={'transformer':dtype, 'default': dtype})
   model.scheduler = DPMSolverMultistepScheduler.from_config(model.scheduler.config)
 
   wrap_to_snn_model(model.transformer)

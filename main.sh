@@ -1,3 +1,13 @@
+#!/usr/bin/env bash
+# Generate 10k ImageNet samples for FID / sFID / IS evaluation.
+# Usage: bash main.sh <gpu> <T> <n> <steps> <image_size>
+# Example: bash main.sh 0 4 8 50 256
+#
+# Recommended paper settings:
+#   T=4, n=6/8/10, steps=25/50/100, image_size=256/512
+
+set -euo pipefail
+
 gpu_no=$1
 T=$2
 num_thresholds=$3

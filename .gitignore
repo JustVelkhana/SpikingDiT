@@ -1,0 +1,41 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.Python
+*.so
+
+# Environments
+.env
+.venv/
+venv/
+env/
+
+# Logs and caches
+log/
+logs/
+cache/
+*.log
+
+# Outputs
+outputs/
+outputs_images/
+samples/
+*.npz
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Hugging Face / model caches
+.cache/
+checkpoints/
+
+# Debug
+.pytest_cache/
+debugpy*
