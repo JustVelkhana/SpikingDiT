@@ -249,7 +249,3 @@ A machine-readable version is also provided in [`citation.bib`](citation.bib) an
 ## Acknowledgements
 
 This implementation builds on [DiT](https://github.com/facebookresearch/DiT), [diffusers](https://github.com/huggingface/diffusers), [fast-hadamard-transform](https://github.com/Dao-AILab/fast-hadamard-transform), and the evaluation suite from [guided-diffusion](https://github.com/openai/guided-diffusion).
-
-## Contact
-
-Questions and issues are welcome via GitHub Issues, or email the corresponding author: [gubin@jlu.edu.cn](mailto:gubin@jlu.edu.cn).
